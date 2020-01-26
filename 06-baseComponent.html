@@ -31,7 +31,15 @@
     class MyComponent2 extends React.Component {
 
       render() {
+        console.log(this)
+        // this 印出此'元件的實例物件' (此為 MyComponent2) ，可簡稱'元件物件 '
 
+        /*
+        在此要特別注意印出的三個特別的值 :
+          1. props
+          2. state
+          3. refs
+        */
         return (
           <h3> ES6 class 元件（複雜元件）</h3>
         )
