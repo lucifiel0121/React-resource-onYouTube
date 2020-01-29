@@ -11,6 +11,7 @@
 <body>
   <div id="app"></div>
   <div id="app2"></div>
+  <div id="app3"></div>
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -43,19 +44,20 @@
     }
     const ppl2 = {
       name: 'Tom',
+    }
+    // 2-b 指定類型與 required
+    Person.defaultProps = {
       age: 18,
       sex: '男'
     }
-    // 2-b 指定類型與 required
     Person.propTypes = {
       name: PropTypes.string.isRequired,
       age: PropTypes.number
     }
-    const { name = "f", age = 18, sex = '男' } = ppl2;
-    console.log(ppl2)
     // name={ppl1.name} age={ppl1.age} sex={ppl1.sex}
-    ReactDOM.render(<Person name={ppl1.name} age={ppl1.age} sex={ppl1.sex} />, document.getElementById('app'))
-    ReactDOM.render(<Person age={ppl2.age} sex={ppl2.sex} />, document.getElementById('app2'))
+    ReactDOM.render(<Person {...ppl1} />, document.getElementById('app'))
+    ReactDOM.render(<Person {...ppl2} />, document.getElementById('app2'))
+    ReactDOM.render(<Person name="Joe" />, document.getElementById('app3'))
 
   </script>
 </body>
