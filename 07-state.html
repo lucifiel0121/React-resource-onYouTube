@@ -26,14 +26,25 @@
         this.state = {
           isLikeMe: false
         }
+        // 將新增的 method 中的 this 強制綁定為 Component 的 this
+        this.handleClick = this.handleClick.bind(this)
+      }
+
+      // 新寫的 method ，內部的 this 不是指向 Component的 this
+      handleClick() {
+        // 先讀取原有狀態並取 not
+        const isLikeMe = !this.state.isLikeMe
+        // 更新狀態
+        this.setState({ isLikeMe })
       }
       render() {
-        const { isLikeME } = this.state;
-
+        // 讀取狀態
+        const { isLikeMe } = this.state;
+        const handleClick = event.target;
+        // 
         return (
-          // 讀取狀態
-          <h2>
-            {isLikeME ? '我喜歡你' : '你喜歡我'}
+          <h2 onClick={this.handleClick}>
+            {isLikeMe ? '我喜歡你' : '你喜歡我'}
           </h2>
         )
       }
