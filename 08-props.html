@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    /* 需求：
+    定義一個元件來顯示資料：
+    1. 如果性別沒有指定，預設為男
+    2. 如果年齡沒有指定，預設為 18
+     */
+
+    // 1. 定義元件（Component）標籤 
+    function Person(props) {
+      return (
+        <ul>
+          <li>姓名：{props.name}</li>
+          <li>年齡：{props.age}</li>
+          <li>性別：{props.sex}</li>
+        </ul>
+      )
+    }
+
+    /* 2.渲染 元件（Component）標籤  */
+    const ppl1 = {
+      name: 'Tom',
+      age: 19,
+      sex: '女'
+    }
+    // name={ppl1.name} age={ppl1.age} sex={ppl1.sex}
+    ReactDOM.render(<Person name={ppl1.name} age={ppl1.age} sex={ppl1.sex} />, document.getElementById('app'))
+
+  </script>
+</body>
+
+</html>
